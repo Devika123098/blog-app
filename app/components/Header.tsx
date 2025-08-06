@@ -10,7 +10,7 @@ import BlogSearchBar from "./BlogSearchBar";
 
 const navLinks = [
   { label: "Homepage", href: "/" },
-  { label: "About us", href: "/about" },
+  { label: "About us", href: "#about" },
   { label: "Features", href: "/features" },
   { label: "Blog", href: "/blog" },
   { label: "Contact us", href: "/contact" },
