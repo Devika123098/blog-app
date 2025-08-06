@@ -22,6 +22,8 @@ async function fetchPosts():  Promise<post[]>{
         if(!data) return null
         return(
             <div className={cn("w-[90%] mx-auto")}>
+                <h2 className={cn("text-black font-bold text-2xl mb-4")}>Our Latest Insights</h2>
+                <p className={cn("text-gray-800 text-lg  mb-10")}>Dive into our collection of articles, guides, and stories covering a wide range of topics, designed to inform and inspire.</p>
                 <ul className={cn("w-full flex justify-center flex-wrap gap-5")}>
                      {data.map((post)=>(
                      <li key={post.id}>

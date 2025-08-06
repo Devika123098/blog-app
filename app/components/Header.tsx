@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { cn } from "../lib/utils";
 import Image from "next/image";
 import logo from "../assets/logo.svg";
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 import { usePathname } from "next/navigation"
+import BlogSearchBar from "./BlogSearchBar";
 const navLinks = [
   { label: "Homepage", href: "/" },
   { label: "About us", href: "/about" },
@@ -30,6 +31,9 @@ export default function Header() {
         <span className={cn("text-2xl font-bold text-gray-900 tracking-tight select-none")}>
           Beyond UI
         </span>
+        <div className={cn("hidden md:block ml-6")}>
+          <BlogSearchBar />
+          </div>
       </div>
 
      
@@ -74,9 +78,12 @@ export default function Header() {
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-black/30 md:hidden" onClick={() => setMenuOpen(false)}>
           <nav
-            className="absolute right-4 top-4 bg-white rounded-2xl shadow-xl p-6 w-64"
+            className="absolute right-4 top-14 bg-white rounded-2xl shadow-xl p-6 w-64"
             onClick={e => e.stopPropagation()}
           >
+            <div className={cn("block md:hidden w-full mb-4")}>
+                  <BlogSearchBar />
+            </div>
             <ul className="flex flex-col items-center gap-6">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
