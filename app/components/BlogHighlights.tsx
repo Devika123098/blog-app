@@ -60,31 +60,38 @@ export default function BlogHighlights() {
       <div className="w-full md:w-[38%] flex flex-col">
         <h3 className="text-xl font-semibold mb-4">Other featured posts</h3>
         <ul className="space-y-0">
-          {others.slice(0, 5).map((post, index) => (
-            <li key={post.id}>
-              <Link
-                href={`/blog/${post.id}`}
-                className={cn(
-                  "flex items-center gap-4 py-3 px-2 hover:bg-gray-100 transition rounded-xl"
-                )}
-                style={{ minWidth: 0 }}
-              >
-                <Image
-                  src={post.image || defaultImg.src}
-                  alt={post.title}
-                  width={56}
-                  height={42}
-                  className="w-14 h-10 object-cover rounded-lg border border-gray-200"
-                  onError={e => (e.currentTarget.src = defaultImg.src)}
-                />
-                <span className="text-base font-medium text-gray-900 leading-snug ">
-                  {post.title}
-                </span>
-              </Link>
-              {index < 4 && <div className="border-b border-gray-200 ml-16" />}
-            </li>
-          ))}
-        </ul>
+  {others.slice(0, 5).map((post, index) => (
+    <li key={post.id}>
+      <Link
+        href={`/blog/${post.id}`}
+        className={cn(
+          "group flex items-center gap-4 py-3 px-2 rounded-xl transition-all duration-200",
+          "hover:bg-gray-50 hover:shadow-md hover:scale-[1.025] active:scale-100"
+        )}
+        style={{ minWidth: 0 }}
+      >
+        <Image
+          src={post.image || defaultImg.src}
+          alt={post.title}
+          width={56}
+          height={42}
+          className={cn(
+            "w-14 h-10 object-cover rounded-lg border border-gray-200 transition-transform duration-200",
+            "group-hover:scale-105"
+          )}
+          onError={e => (e.currentTarget.src = defaultImg.src)}
+        />
+        <span className={cn(
+          "text-base font-medium text-gray-900 leading-snug transition-colors duration-200",
+          "group-hover:text-gray-700"
+        )}>
+          {post.title}
+        </span>
+      </Link>
+      {index < 4 && <div className="border-b border-gray-200 ml-16" />}
+    </li>
+  ))}
+</ul>
       </div>
     </section>
   );
