@@ -8,12 +8,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { usePathname } from "next/navigation";
 import BlogSearchBar from "./BlogSearchBar";
 
+
 const navLinks = [
   { label: "Homepage", href: "/" },
-  { label: "About us", href: "#about" },
-  { label: "Features", href: "/features" },
+  { label: "About us", href: "/#about" },
+  { label: "Features", href: "/#features" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact us", href: "/contact" },
+  { label: "Contact us", href: "/#contact" },
 ];
 
 export default function Header() {

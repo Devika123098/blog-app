@@ -24,7 +24,7 @@ export default function BlogHighlights() {
   const [main, ...others] = data;
 
   return (
-    <section className="flex flex-col md:flex-row mt-10 gap-8 w-full mx-auto">
+    <section className="flex flex-col md:flex-row mt-15 gap-8 w-full mx-auto">
       
       <Link
         href={`/blog/${main.id}`}
