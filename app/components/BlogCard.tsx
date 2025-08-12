@@ -18,7 +18,7 @@ interface BlogCardProps {
 export default function BlogCard({ image, title, content, profile, name, id, tag, date }: BlogCardProps) {
   return (
     <div className={cn(
-      "w-[325px] h-[450px] rounded-2xl group cursor-pointer overflow-hidden p-0 shadow-lg bg-white border border-gray-100 flex flex-col transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
+      " md:w-[325px] h-[450px] rounded-2xl group cursor-pointer overflow-hidden p-0 shadow-lg bg-white border border-gray-100 flex flex-col transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
     )}>
       <div className="relative">
         <Image

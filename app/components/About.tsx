@@ -3,7 +3,7 @@ import { cn } from "../lib/utils"
 
 function About() {
   return (
-    <section id="about" className={cn("mt-15 w-full py-12")}>
+    <section id="about" className={cn("w-full mt-15")}>
       <div className={cn("w-full")}>
         <div className={cn("relative rounded-2xl border border-gray-200 bg-white shadow-md")}>
           <div className={cn("absolute left-0 top-0 h-full w-1.5 bg-gray-900/80 rounded-l-2xl hidden sm:block")} />

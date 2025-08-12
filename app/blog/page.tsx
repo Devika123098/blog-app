@@ -5,9 +5,7 @@ import { cn } from "../lib/utils"
 import BlogCard from "../components/BlogCard"
 
 async function fetchPosts(): Promise<post[]> {
-  const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts", {
-    cache: "no-store"
-  })
+  const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } })
   if (!res.ok) throw new Error("Failed to fetch posts")
   return res.json()
 }
@@ -21,10 +19,10 @@ export default function Blog() {
   if (!data) return null
 
   return (
-    <div className={cn("w-full max-w-7xl mx-auto py-12")}>
+    <div className={cn("w-[90%] mx-auto py-12")}>
       <div className={cn("mb-10 text-center")}>
-        <h2 className={cn("text-black font-bold text-2xl md:text-3xl mb-2 tracking-tight")}>Our Latest Insights</h2>
-        <p className={cn("text-gray-800 text-lg max-w-2xl mx-auto")}>
+        <h2 className={cn("text-gray-900 font-bold text-2xl md:text-3xl mb-4 tracking-tight")}>Our Latest Insights</h2>
+        <p className={cn("text-gray-700 text-lg max-w-2xl mx-auto")}>
           Dive into our collection of articles, guides, and stories covering a wide range of topics, designed to inform and inspire.
         </p>
       </div>

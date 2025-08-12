@@ -3,16 +3,24 @@ import BlogHighlights from "./components/BlogHighlights"
 import { RecentPosts } from "./components/RecentPosts"
 import About from "./components/About"
 import Features from "./components/Features"
+import Contact from "./components/Contact"
 export default async  function HomePage() {
 
   return (
+    <>
     <main className={cn("w-full min-h-screen bg-white text-black")}>
-      <div className={cn("w-[90%] mx-auto")}>
+      <section className={cn("w-[90%] mx-auto")}>
         <BlogHighlights  />
         <RecentPosts/>
         <About/>
         <Features/>
-      </div>
+      </section>
     </main>
+    <footer id="contact" className={cn("w-full mt-15 bg-gray-900 text-white flex justify-center")}>
+      <div className={cn("w-[90%]")}>
+          <Contact/>
+      </div>
+    </footer>
+    </>
   )
 }

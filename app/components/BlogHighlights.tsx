@@ -7,9 +7,7 @@ import defaultImg from "../assets/default.jpg";
 import { cn } from "../lib/utils";
 
 async function fetchPosts(): Promise<post[]> {
-  const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts", {
-    cache: "no-store",
-  });
+  const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } });
   if (!res.ok) throw new Error("Failed to fetch posts");
   return res.json();
 }

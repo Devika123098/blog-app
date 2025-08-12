@@ -16,7 +16,7 @@ export const FeatureCard = ({ image, alt, icon: Icon, title, content }: FeatureC
   return (
     <div
       className={cn(
-        "w-[427px]  group flex flex-col gap-4 p-6",
+        "md:w-[427px]  group flex flex-col gap-4 p-6",
         "rounded-2xl border border-gray-200 bg-white",
         "shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
       )}

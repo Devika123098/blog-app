@@ -43,7 +43,7 @@ const features: Feature[] = [
 
 function Features() {
   return (
-    <section id="features" className={cn("w-full py-12 bg-gradient-to-b from-white via-gray-50 to-gray-50")}>
+    <section id="features" className={cn("w-full mt-15 bg-gradient-to-b from-white via-gray-50 to-gray-50")}>
       <div className={cn("max-w-7xl mx-auto px-4 md:px-8")}>
         <div className={cn("text-center mb-10")}>
           <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-gray-200 shadow-sm backdrop-blur")}>
