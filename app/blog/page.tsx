@@ -1,6 +1,5 @@
 "use client"
 import { useQuery } from "@tanstack/react-query"
-import { post } from "../types/post"
 import { cn } from "../lib/utils"
 import BlogCard from "../components/BlogCard"
 import Loader from "../components/Loader"

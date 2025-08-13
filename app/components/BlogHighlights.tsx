@@ -1,6 +1,5 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { post } from "../types/post";
 import Link from "next/link";
 import Image from "next/image";
 import defaultImg from "../assets/default.jpg";

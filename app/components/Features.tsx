@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from "../lib/utils"
 import img1 from "../assets/feat-img-1.png"
-import Image, { type StaticImageData } from 'next/image'
+import { type StaticImageData } from 'next/image'
 import { SparklesIcon, CloudIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
 import img2 from "../assets/feat-img-2.png"
 import img3 from "../assets/feat-img-3.png"

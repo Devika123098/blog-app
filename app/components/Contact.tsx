@@ -14,7 +14,7 @@ export default function Contact() {
             Ready to Start Your Blogging Journey?
           </h4>
           <p className={cn("text-sm text-gray-700 mb-6")}>
-            Join thousands of creators who trust Blog App for their online presence. It's time to share your story with the world.
+            Join thousands of creators who trust Blog App for their online presence. It&apos;s time to share your story with the world.
           </p>
           <div className={cn("flex justify-center")}>
             <Link
