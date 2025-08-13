@@ -4,14 +4,22 @@ import { RecentPosts } from "./components/RecentPosts"
 import About from "./components/About"
 import Features from "./components/Features"
 import Contact from "./components/Contact"
-export default function HomePage() {
-
+import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
+import { fetchPosts } from "./lib/api/posts"
+export default  async function HomePage() {
+   const queryClient = new QueryClient()
+  await queryClient.prefetchQuery({
+    queryKey: ['posts'],
+    queryFn: fetchPosts,
+  })
   return (
     <>
     <main className={cn("w-full min-h-screen bg-white text-black")}>
       <section className={cn("w-[90%] mx-auto")}>
+        <HydrationBoundary state={dehydrate(queryClient)}>
         <BlogHighlights  />
         <RecentPosts/>
+        </HydrationBoundary>
         <About/>
         <Features/>
       </section>
