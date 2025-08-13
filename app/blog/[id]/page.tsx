@@ -4,8 +4,17 @@ import type { post } from "../../types/post";
 import { cn } from "../../lib/utils";
 
 const apiUrl = process.env.NEXT_PUBLIC_URL as string;
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const res = await fetch(`${apiUrl}/${params.id}`,{ next: { revalidate: 60 } });
+
+
+interface BlogPostPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+ 
+  const { id } = await params;
+  
+  const res = await fetch(`${apiUrl}/${id}`, { next: { revalidate: 60 } });
 
   if (!res.ok) return notFound();
 
