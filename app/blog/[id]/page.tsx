@@ -3,8 +3,9 @@ import Image from "next/image";
 import type { post } from "../../types/post";
 import { cn } from "../../lib/utils";
 
+const apiUrl = process.env.NEXT_PUBLIC_URL as string;
 export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const res = await fetch(`https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts/${params.id}`,{ next: { revalidate: 60 } });
+  const res = await fetch(`${apiUrl}/${params.id}`,{ next: { revalidate: 60 } });
 
   if (!res.ok) return notFound();
 

@@ -6,14 +6,10 @@ import { cn } from '../lib/utils'
 import Link from 'next/link'
 import BlogCard from "./BlogCard";
 import Loader from "./Loader";
-async function fetchPosts(): Promise<post[]> {
-  const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } });
-  if (!res.ok) throw new Error("Failed to fetch posts");
-  return res.json();
-}
+import { fetchPosts } from "../lib/api/posts";
 
 export const RecentPosts = () => {
-    const { data, isLoading, isSuccess } = useQuery({
+    const { data, isLoading} = useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
       });
