@@ -5,6 +5,7 @@ import React from 'react'
 import { cn } from '../lib/utils'
 import Link from 'next/link'
 import BlogCard from "./BlogCard";
+import Loader from "./Loader";
 async function fetchPosts(): Promise<post[]> {
   const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } });
   if (!res.ok) throw new Error("Failed to fetch posts");
@@ -12,12 +13,13 @@ async function fetchPosts(): Promise<post[]> {
 }
 
 export const RecentPosts = () => {
-    const { data } = useQuery({
+    const { data, isLoading, isSuccess } = useQuery({
         queryKey: ["posts"],
         queryFn: fetchPosts,
       });
     
       if (!data) return null
+      if(isLoading) return <Loader/>
       const recentPosts = data.sort((a,b)=> new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0,4)
   return (
     <div className={cn("mt-15 w-full mx-auto")}>

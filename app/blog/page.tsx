@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { post } from "../types/post"
 import { cn } from "../lib/utils"
 import BlogCard from "../components/BlogCard"
+import Loader from "../components/Loader"
 
 async function fetchPosts(): Promise<post[]> {
   const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } })
@@ -17,7 +18,7 @@ export default function Blog() {
   })
 
   if (!data) return null
-
+  if(isLoading) return <Loader/>
   return (
     <div className={cn("w-[90%] mx-auto py-12")}>
       <div className={cn("mb-10 text-center")}>

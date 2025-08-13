@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import defaultImg from "../assets/default.jpg";
 import { cn } from "../lib/utils";
+import Loader from "./Loader";
 
 async function fetchPosts(): Promise<post[]> {
   const res = await fetch("https://688dabf0a459d5566b12deb8.mockapi.io/api/vi/posts",{ next: { revalidate: 60 } });
@@ -13,12 +14,13 @@ async function fetchPosts(): Promise<post[]> {
 }
 
 export default function BlogHighlights() {
-  const { data } = useQuery({
+  const { data, isLoading, isFetching} = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
   });
 
   if (!data) return null;
+  if(isLoading) return <Loader/>
   const [main, ...others] = data;
 
   return (

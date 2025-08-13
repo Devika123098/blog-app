@@ -4,7 +4,7 @@ import { RecentPosts } from "./components/RecentPosts"
 import About from "./components/About"
 import Features from "./components/Features"
 import Contact from "./components/Contact"
-export default async  function HomePage() {
+export default function HomePage() {
 
   return (
     <>
