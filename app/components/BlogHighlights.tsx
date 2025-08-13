@@ -56,36 +56,39 @@ export default function BlogHighlights() {
         <h3 className="text-xl font-semibold mb-4">Other featured posts</h3>
         <ul className="space-y-0">
   {others.slice(0, 5).map((post, index) => (
-    <li key={post.id}>
-      <Link
-        href={`/blog/${post.id}`}
-        className={cn(
-          "group flex items-center gap-4 py-3 px-2 rounded-xl transition-all duration-200",
-          "hover:bg-gray-50 hover:shadow-md hover:scale-[1.025] active:scale-100"
-        )}
-        style={{ minWidth: 0 }}
-      >
+  <li key={post.id}>
+    <Link
+      href={`/blog/${post.id}`}
+      className={cn(
+        "group flex items-center gap-4 py-3 px-2 rounded-xl transition-all duration-200",
+        "hover:bg-gray-50 hover:shadow-md hover:scale-[1.025] active:scale-100"
+      )}
+      style={{ minWidth: 0 }}
+    >
+      <div className="relative w-14 h-10 rounded-lg overflow-hidden border border-gray-200 flex-shrink-0">
         <Image
           src={post.image || defaultImg.src}
           alt={post.title}
-          width={56}
-          height={42}
+          fill
           className={cn(
-            "w-14 h-10 object-cover rounded-lg border border-gray-200 transition-transform duration-200",
+            "object-cover transition-transform duration-200",
             "group-hover:scale-105"
           )}
-          onError={e => (e.currentTarget.src = defaultImg.src)}
+          sizes="56px"
+          onError={(e) => (e.currentTarget.src = defaultImg.src)}
         />
-        <span className={cn(
-          "text-base font-medium text-gray-900 leading-snug transition-colors duration-200",
-          "group-hover:text-gray-700"
-        )}>
-          {post.title}
-        </span>
-      </Link>
-      {index < 4 && <div className="border-b border-gray-200 ml-16" />}
-    </li>
-  ))}
+      </div>
+      <span className={cn(
+        "text-base font-medium text-gray-900 leading-snug transition-colors duration-200",
+        "group-hover:text-gray-700 flex-1"
+      )}>
+        {post.title}
+      </span>
+    </Link>
+    {index < 4 && <div className="border-b border-gray-200 ml-16" />}
+  </li>
+))}
+
 </ul>
       </div>
     </section>
