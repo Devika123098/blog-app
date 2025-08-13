@@ -15,7 +15,7 @@ This project is a blog application built with Next.js 15, demonstrating proficie
 
 ## Technologies Used
 
-*   **Next.js 14:** React framework for building server-side rendered applications.
+*   **Next.js 15:** React framework for building server-side rendered applications.
 *   **React Query:** Powerful library for fetching, caching, and updating asynchronous data in React.
 *   **Tailwind CSS:** Utility-first CSS framework for rapid and responsive styling.
 *   **React:** JavaScript library for building user interfaces.
